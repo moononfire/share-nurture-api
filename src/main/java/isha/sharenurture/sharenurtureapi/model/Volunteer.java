@@ -18,6 +18,10 @@ public class Volunteer {
 
     }
 
+    public Volunteer(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
