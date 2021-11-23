@@ -17,7 +17,7 @@ public class VolunteerController {
         this.service = service;
     }
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/{id}", produces = "application/json")
     public Volunteer getVolunteer(@PathVariable int id) {
         return service.getVolunteer(id);
     }
