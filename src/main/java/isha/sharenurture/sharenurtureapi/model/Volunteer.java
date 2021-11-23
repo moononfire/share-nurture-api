@@ -1,4 +1,4 @@
-package isha.sharenurture.sharenurtureapi;
+package isha.sharenurture.sharenurtureapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
