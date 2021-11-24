@@ -1,9 +1,7 @@
 package isha.sharenurture.sharenurtureapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Volunteer {
@@ -13,6 +11,9 @@ public class Volunteer {
     int id;
 
     String name;
+
+    @OneToMany(mappedBy = "primaryVolunteer", cascade = CascadeType.ALL)
+    private Set<Group> groups;
 
     public Volunteer() {
 
@@ -41,5 +42,13 @@ public class Volunteer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
     }
 }
