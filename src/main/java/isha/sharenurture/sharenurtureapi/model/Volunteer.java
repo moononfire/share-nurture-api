@@ -1,6 +1,9 @@
 package isha.sharenurture.sharenurtureapi.model;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,7 +15,7 @@ public class Volunteer {
 
     String name;
 
-    @OneToMany(mappedBy = "primaryVolunteer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "primaryVolunteer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Group> groups;
 
     public Volunteer() {
@@ -26,6 +29,7 @@ public class Volunteer {
     public Volunteer(int id, String name) {
         this.id = id;
         this.name = name;
+        groups = new HashSet<>();
     }
 
     public int getId() {
@@ -44,7 +48,7 @@ public class Volunteer {
         this.name = name;
     }
 
-    Set<Group> getGroups() {
+    public Set<Group> getGroups() {
         return groups;
     }
 //

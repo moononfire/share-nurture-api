@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface GroupRepository extends JpaRepository<Group, Integer> {
 
-//    List<Group> findGroupByPrimaryVolunteerId(int primaryVolunteerId);
+    List<Group> findAllByPrimaryVolunteerId(int primaryVolunteerId);
 }

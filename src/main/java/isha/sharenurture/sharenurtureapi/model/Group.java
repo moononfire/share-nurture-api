@@ -9,8 +9,8 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "primary_volunteer_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRIMARY_VOLUNTEER_ID")
     private Volunteer primaryVolunteer;
 
     public Group(int id, Volunteer primaryVolunteer) {
@@ -23,6 +23,14 @@ public class Group {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPrimaryVolunteer(Volunteer primaryVolunteer) {
+        this.primaryVolunteer = primaryVolunteer;
     }
 
     public Volunteer getPrimaryVolunteer() {

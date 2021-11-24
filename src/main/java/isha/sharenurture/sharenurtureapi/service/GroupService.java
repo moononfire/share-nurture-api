@@ -17,7 +17,7 @@ public class GroupService {
         this.repository = repository;
     }
 
-//    public List<Group> getGroupsOfPrimaryVolunteerId(int id) {
-//        return repository.findGroupByPrimaryVolunteerId(id);
-//    }
+    public List<Group> getGroupsOfPrimaryVolunteerId(int id) {
+        return repository.findAllByPrimaryVolunteerId(id);
+    }
 }
