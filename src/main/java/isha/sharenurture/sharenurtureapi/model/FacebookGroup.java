@@ -1,7 +1,6 @@
 package isha.sharenurture.sharenurtureapi.model;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,4 +20,12 @@ public class FacebookGroup {
     @ManyToOne
     @JoinColumn(name = "primary_volunteer_id")
     private Volunteer primaryVolunteer;
+
+    @ManyToOne
+    @JoinColumn(name = "secondary_volunteer_id")
+    private Volunteer secondaryVolunteer;
+
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

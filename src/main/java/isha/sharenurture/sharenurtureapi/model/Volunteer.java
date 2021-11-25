@@ -1,6 +1,5 @@
 package isha.sharenurture.sharenurtureapi.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -19,8 +18,11 @@ public class Volunteer {
     String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "primaryVolunteer")
-    private Set<FacebookGroup> facebookGroups;
+    private Set<FacebookGroup> primaryFacebookGroups;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "secondaryVolunteer")
+    private Set<FacebookGroup> secondaryFacebookGroups;
+    
     public Volunteer(int id) {
         this.id = id;
     }
@@ -28,7 +30,7 @@ public class Volunteer {
     public Volunteer(int id, String name) {
         this.id = id;
         this.name = name;
-        facebookGroups = new HashSet<>();
+        primaryFacebookGroups = new HashSet<>();
     }
 
     public int getId() {
@@ -43,7 +45,8 @@ public class Volunteer {
         this.name = name;
     }
 
-    /* UPDATE: actually I don't know why this does not work.
+    /* UPDATE: actually I don't know why this does not work. It requires a 2nd table volunteer_groups or sth similar..
+       before:
      * this can't be done because we would have to declare it as @manyToMany relationship in hibernate.
      * until then we can keep it like this in Java code, but in the database it's still a one-directional relationship.
      */
