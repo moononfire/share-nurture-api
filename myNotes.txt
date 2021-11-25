@@ -1,0 +1,6 @@
+hints:
+This tutorial https://medium.com/@rajibrath20/the-best-way-to-map-a-onetomany-relationship-with-jpa-and-hibernate-dbbf6dba00d3
+says (on one of the bottom paragraphs) that there should be no way to add a group by itself to avoid inconsistencies
+(f.e. there is no volunteer with the ID with which we have just added a group-volunteer).
+Instead, the User interface should provide interface to add groups.
+-- TODO: check if it is possible to add a group with a primaryvolunteerid which does not exist in the Volunteer table

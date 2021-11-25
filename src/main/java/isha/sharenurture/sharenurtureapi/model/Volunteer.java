@@ -18,7 +18,7 @@ public class Volunteer {
 
     String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "primaryVolunteer")
     private Set<FacebookGroup> facebookGroups;
 
     public Volunteer(int id) {
@@ -43,11 +43,11 @@ public class Volunteer {
         this.name = name;
     }
 
+    /* UPDATE: actually I don't know why this does not work.
+     * this can't be done because we would have to declare it as @manyToMany relationship in hibernate.
+     * until then we can keep it like this in Java code, but in the database it's still a one-directional relationship.
+     */
 //    public Set<FacebookGroup> getGroups() {
 //        return facebookGroups;
-//    }
-//
-//    public void setGroups(Set<Group> groups) {
-//        this.groups = groups;
 //    }
 }
