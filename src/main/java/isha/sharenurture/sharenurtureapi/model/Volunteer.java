@@ -1,26 +1,25 @@
 package isha.sharenurture.sharenurtureapi.model;
 
-import org.hibernate.annotations.Fetch;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@NoArgsConstructor
 public class Volunteer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     int id;
 
     String name;
 
-    @OneToMany(mappedBy = "primaryVolunteer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Group> groups;
-
-    public Volunteer() {
-
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<FacebookGroup> facebookGroups;
 
     public Volunteer(int id) {
         this.id = id;
@@ -29,15 +28,11 @@ public class Volunteer {
     public Volunteer(int id, String name) {
         this.id = id;
         this.name = name;
-        groups = new HashSet<>();
+        facebookGroups = new HashSet<>();
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,9 +43,9 @@ public class Volunteer {
         this.name = name;
     }
 
-    public Set<Group> getGroups() {
-        return groups;
-    }
+//    public Set<FacebookGroup> getGroups() {
+//        return facebookGroups;
+//    }
 //
 //    public void setGroups(Set<Group> groups) {
 //        this.groups = groups;

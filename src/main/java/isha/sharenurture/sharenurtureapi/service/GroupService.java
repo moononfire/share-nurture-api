@@ -1,6 +1,7 @@
 package isha.sharenurture.sharenurtureapi.service;
 
-import isha.sharenurture.sharenurtureapi.model.Group;
+import isha.sharenurture.sharenurtureapi.model.FacebookGroup;
+import isha.sharenurture.sharenurtureapi.model.Volunteer;
 import isha.sharenurture.sharenurtureapi.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,11 @@ public class GroupService {
         this.repository = repository;
     }
 
-    public List<Group> getGroupsOfPrimaryVolunteerId(int id) {
+    public List<FacebookGroup> getGroupsOfPrimaryVolunteer(int id) {
         return repository.findAllByPrimaryVolunteerId(id);
+    }
+
+    public List<FacebookGroup> getAllGroups() {
+        return repository.findAll();
     }
 }

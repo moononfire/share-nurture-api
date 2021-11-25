@@ -1,12 +1,10 @@
 package isha.sharenurture.sharenurtureapi.service;
 
-import isha.sharenurture.sharenurtureapi.model.Group;
 import isha.sharenurture.sharenurtureapi.model.Volunteer;
 import isha.sharenurture.sharenurtureapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
