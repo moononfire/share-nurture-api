@@ -24,12 +24,12 @@ public class VolunteerController {
         this.groupService = groupService;
     }
 
-    @GetMapping(value = "/volunteer/{id}", produces = "application/json")
+    @GetMapping(value = "/volunteers/{id}", produces = "application/json")
     public ResponseEntity<Volunteer> getVolunteer(@PathVariable int id) {
         return ResponseEntity.ok(volunteerService.getVolunteer(id));
     }
 
-    @GetMapping(value = "/volunteer/{id}/groups", produces = "application/json")
+    @GetMapping(value = "/volunteers/{id}/groups", produces = "application/json")
     public ResponseEntity<List<FacebookGroup>> getVolunteerGroups(@PathVariable int id) {
         return ResponseEntity.ok(groupService.getGroupsOfPrimaryVolunteer(id));
     }
