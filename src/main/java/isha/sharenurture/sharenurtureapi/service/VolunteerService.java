@@ -5,6 +5,7 @@ import isha.sharenurture.sharenurtureapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -21,5 +22,9 @@ public class VolunteerService {
 
     public Volunteer getVolunteer(int id) {
         return volunteerRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
+
+    public List<Volunteer> getAllVolunteers() {
+        return volunteerRepository.findAll();
     }
 }

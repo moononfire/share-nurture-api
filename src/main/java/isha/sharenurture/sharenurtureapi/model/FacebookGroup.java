@@ -1,5 +1,7 @@
 package isha.sharenurture.sharenurtureapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +21,12 @@ public class FacebookGroup {
 
     @ManyToOne
     @JoinColumn(name = "primary_volunteer_id")
+    @JsonManagedReference
     private Volunteer primaryVolunteer;
 
     @ManyToOne
     @JoinColumn(name = "secondary_volunteer_id")
+    @JsonManagedReference
     private Volunteer secondaryVolunteer;
 
     @OneToOne

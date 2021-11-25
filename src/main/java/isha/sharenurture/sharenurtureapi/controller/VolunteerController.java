@@ -24,6 +24,11 @@ public class VolunteerController {
         this.groupService = groupService;
     }
 
+    @GetMapping(value = "/volunteers", produces = "application/json")
+    public ResponseEntity<List<Volunteer>> getAllVolunteers() {
+        return ResponseEntity.ok(volunteerService.getAllVolunteers());
+    }
+
     @GetMapping(value = "/volunteers/{id}", produces = "application/json")
     public ResponseEntity<Volunteer> getVolunteer(@PathVariable int id) {
         return ResponseEntity.ok(volunteerService.getVolunteer(id));

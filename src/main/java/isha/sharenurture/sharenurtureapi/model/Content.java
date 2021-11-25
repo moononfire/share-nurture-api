@@ -1,5 +1,8 @@
 package isha.sharenurture.sharenurtureapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -7,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Content {
 
     @Id
@@ -15,6 +19,7 @@ public class Content {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "content")
+    @ManyToMany(mappedBy = "contents")
+    @JsonManagedReference
     private Set<Tag> tags;
 }

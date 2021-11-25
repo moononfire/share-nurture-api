@@ -1,5 +1,8 @@
 package isha.sharenurture.sharenurtureapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -8,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Volunteer {
 
     @Id
@@ -18,9 +22,11 @@ public class Volunteer {
     String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "primaryVolunteer")
+    @JsonBackReference
     private Set<FacebookGroup> primaryFacebookGroups;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "secondaryVolunteer")
+    @JsonBackReference
     private Set<FacebookGroup> secondaryFacebookGroups;
     
     public Volunteer(int id) {
