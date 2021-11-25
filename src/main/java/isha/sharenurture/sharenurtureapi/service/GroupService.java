@@ -18,11 +18,12 @@ public class GroupService {
         this.repository = repository;
     }
 
+    public List<FacebookGroup> getAllGroups() {
+        return repository.findAll();
+    }
+
     public List<FacebookGroup> getGroupsOfPrimaryVolunteer(int id) {
         return repository.findAllByPrimaryVolunteerId(id);
     }
 
-    public List<FacebookGroup> getAllGroups() {
-        return repository.findAll();
-    }
 }

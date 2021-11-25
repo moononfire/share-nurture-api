@@ -31,7 +31,6 @@ public class VolunteerController {
 
     @GetMapping(value = "/volunteer/{id}/groups", produces = "application/json")
     public ResponseEntity<List<FacebookGroup>> getVolunteerGroups(@PathVariable int id) {
-//        Volunteer volunteer = volunteerService.getVolunteer(id);
         return ResponseEntity.ok(groupService.getGroupsOfPrimaryVolunteer(id));
     }
 }

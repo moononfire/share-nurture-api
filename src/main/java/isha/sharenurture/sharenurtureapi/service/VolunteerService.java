@@ -22,8 +22,4 @@ public class VolunteerService {
     public Volunteer getVolunteer(int id) {
         return volunteerRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
-//
-//    public List<Group> getVolunteerGroups(int id) {
-//        return groupService.getGroupsOfPrimaryVolunteerId(id);
-//    }
 }
