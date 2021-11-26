@@ -1,23 +1,23 @@
 package isha.sharenurture.sharenurtureapi.service;
 
-import isha.sharenurture.sharenurtureapi.model.Tag;
-import isha.sharenurture.sharenurtureapi.repository.TagRepository;
+import isha.sharenurture.sharenurtureapi.model.Category;
+import isha.sharenurture.sharenurtureapi.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TagService {
+public class CategoryService {
 
-    private TagRepository repository;
+    private CategoryRepository repository;
 
     @Autowired
-    public TagService(TagRepository repository) {
+    public CategoryService(CategoryRepository repository) {
         this.repository = repository;
     }
 
-    public List<Tag> getAllTags() {
+    public List<Category> getAllCategories() {
         return repository.findAll();
     }
 

@@ -1,9 +1,7 @@
 package isha.sharenurture.sharenurtureapi.service;
 
 import isha.sharenurture.sharenurtureapi.model.Content;
-import isha.sharenurture.sharenurtureapi.model.FacebookGroup;
 import isha.sharenurture.sharenurtureapi.repository.ContentRepository;
-import isha.sharenurture.sharenurtureapi.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
