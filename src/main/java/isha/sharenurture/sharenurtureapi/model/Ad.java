@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Getter
-public class Content {
+public class Ad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +19,10 @@ public class Content {
     private String name;
 
     private String url;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     private String type;
 

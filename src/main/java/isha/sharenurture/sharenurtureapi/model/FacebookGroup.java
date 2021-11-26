@@ -29,7 +29,17 @@ public class FacebookGroup {
     @JsonManagedReference
     private Volunteer secondaryVolunteer;
 
-    @OneToOne
+    private String url;
+
+    private String language;
+
+    private boolean allowsAds;
+
+    private int size;
+
+    private int postsLast30Days;
+
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 }
